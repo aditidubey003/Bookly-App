@@ -1,4 +1,4 @@
-let obj = {
+let allBooks = {
 books: [
       {
         isbn: "9781593275846",
@@ -118,5 +118,21 @@ books: [
      ]
     };
 
-
-    
+let ul = document.querySelector('ul')
+    allBooks.books.forEach(element => {
+      let li = document.createElement('li')
+      let img = document.createElement('img')
+      img.src = element.image;
+      img.alt = element.title;
+      let h2 = document.createElement('h2')
+      h2.innerText = element.title;
+      let p = document.createElement('p')
+      p.innerText = "Authors:"
+      let span = document.createElement('span')
+      span.innerText = element.author;
+      p.append(span)
+      let button = document.createElement('button')
+      button.innerText = "Buy Now"
+      li.append(img, h2, p, button)
+      ul.append(li)
+    });
